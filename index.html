@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>6 quizzes</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <style>
+      body {
+        margin: 0;
+        overflow-x: hidden; /* Allow vertical scrolling */
+        overflow-y: scroll;
+      }
+      #myEmbeddedScene {
+        height: 300px;
+        width: 100%;
+        max-width: 600px;
+        border: 1px solid #fff;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden; /* Ensure no horizontal scrollbars for the scene */
+      }
+      #myEmbeddedScene a-scene {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+   <!-- A-Frame script -->
+   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+
+    <!-- aframe extras -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <!-- cool sky -->
+    <script src="https://cdn.jsdelivr.net/npm/a-super-sky@1.1.1/super-sky.js"></script>
+
+    <!-- premade gui -->
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script> 
+
+   <!-- Other components -->
+    </head>
+    <body>
+      
+
+
+        <div id="myEmbeddedScene">
+            <a-scene embedded device-orientation-permission-ui="enabled: false" renderer="antialias: true"
+            webxr="referenceSpaceType: local">>
+
+              
+                <a-entity id="videosphere" geometry="primitive: sphere; radius: 5000;" 
+                material="shader: flat; src: soil_videosphere.mp4; side: back; opacity: 0.5;">
+                </a-entity>
+
+                  <!-- the soil -->
+                  <a-plane 
+                  position="-4 -2 -6.5" 
+                  rotation="-90 0 0" 
+                  width="8" 
+                  height="4" 
+                  color="#A58776"
+                ></a-plane>
+
+      
+
+
+                    <!-- all animated things must be a-entities for play/pause to work -->
+        
+                    <!-- boy 1 -->
+                    <a-entity id="boy1"
+                    scale="1 1 1" rotation="0 0 0" geometry="primitive: plane; width: 3; height: 5" material="src: assets/defaultpose_boy1.svg; transparent: true;" shadow="receive: false;"
+
+                    
+                    animation__enterscene1="property: position; to: 2 0 -6; from: 5 0 0 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 4000; delay: 0;"
+                    animation__moveleft1="property: position; to: 1.5 0 -6; from: 2 0 -6 easing: inOutQuad; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 3000; delay: 5000;"
+
+                    animation__movetofield="property: position; to: -2 0 -6.5; from: 1.5 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 4000; delay: 9000;"
+
+
+
+                    animation__moveright="property: position; to: 1 0 -6.5; from: -5 0 -6.5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 4000; delay: 4000;"
+                    animation__doneplanting="property: position; to: 1 0 -6.5; from: 1 0 -6.5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 4000; delay: 7000;"
+                    animation__exitright1="property: position; to: 10 0 -6; from: -1 0 -6.5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 3000; delay: 11000;"
+                    animation__leavescene1="property: position; to: 100 100 100; from: 10 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 14000;"
+                    animation__re-enterscene="property: position; to: 0 0 -6; from: 10 0 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 6000; delay: 30000;"
+                    
+
+
+                    animation__exitright2="property: position; to: -10 0 -6; from: 0 0 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 4000; delay: 4000;"
+                    animation__leavescene2="property: position; to: -100 0 -6; from: -10 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 1; delay: 8000;"
+
+
+
+                 ></a-entity>
+
+
+               <!-- girl -->
+               <a-entity id="girl"
+                 scale="1.5 .75 .75" rotation="0 0 0" geometry="primitive: plane; width: 1.5; height: 5" material="src:assets/plantingPose_girl.svg; transparent: true;" shadow="receive: false"
+       
+                 animation__stay="property: position; to: -5 0 -5; from: -5 0 -5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 5000; delay: 0;"
+
+                 animation__moveright="property: position; to: -1 0 -5; from: -5 0 -5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 4000; delay: 4000;"
+                 animation__doneplanting="property: position; to: -1 0 -5; from: -1 0 -5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 4000; delay: 7000;"
+                 animation__exitright1="property: position; to: 9 0 -6; from: 1 0 -6.5; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 3000; delay: 11000;"
+                 animation__leavescene1="property: position; to: 100 100 100; from: 5 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 14000;"
+
+                 animation__re-enterscene="property: position; to:  0 0 -6; from: 9 0 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 4000; delay: 4000;"
+       
+                 
+               ></a-entity>
+
+               <!-- boy 2 -->
+               <a-entity id="boy2"
+                 scale="-2 1 1" rotation="0 0 0" geometry="primitive: plane; width: 1.5; height: 4" material="src: assets/defaultpose_boy2.svg; transparent: true;" shadow="receive: false"
+
+                 animation__stay="property: position; to: 4.5 0 -6; from: 4.5 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 1;"
+
+                 animation__movetoboy1="property: position; to: 3.5 0 -6; from: 4 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 2000; delay: 2000"
+
+                animation__moveright1="property: position; to:  3 0 -6; from: 3.5 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 3000; delay: 5000"
+
+               
+                 animation__exitright1="property: position; to: 10 0 -6; from: 4 0 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 3000; delay: 11000"
+                 animation__leavescene1="property: position; to: 100 100 100; from: 10 0 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 14000"
+
+
+                 animation__re-enterscene="property: position; to: 4 0 -6; from: 10 0 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 6000; delay: 30000;"
+
+               ></a-entity>
+
+             <!-- girl 2 -->
+             <a-entity id="girl2"
+               scale="2 1 1" rotation="0 0 0" geometry="primitive: plane; width: 1.5; height: 4" material="src: assets/defaultPose_boy1.svg; transparent: true;" shadow="receive: false"
+
+               animation__enterscene1="property: position; to: 6 0 -5; from: 8 0 0 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 5000; delay: 3000"
+
+               animation__leavescene1="property: position; to: 8 0 0; from: 6 0 -6 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 3000; delay: 3000"
+               animation__enterscene2="property: position; to: 7 0 -6; from: 3 0 0; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 5000; delay: 4000"
+             ></a-entity>
+
+
+              <!-- plants -->
+
+              
+
+                <!-- <a-entity id= "plants"> -->
+                  <a-entity id = "plant1"
+                  scale = "0.6 0.6 0.6"
+                  geometry="primitive: box"
+                  rotation="0 90 0"
+                  material="color: #ABFFAE; opacity: 0"
+                  gltf-model="assets/3dplant0.glb"
+                  position="10 10 10"
+                  animation__enterframe1="property: position; to: -6 -1.5 -6; from: -6 -1.5 -6; dur: 1; dur: 1; pauseEvents: pause; autoplay: false; startEvents: playanimation4; delay: 6000;"
+            
+                  ></a-entity>
+                  <a-entity id = "plant2"
+                  scale = "0.6 0.6 0.6"
+                  geometry="primitive: box"
+                  rotation="0 90 0"
+                  material="color: #ABFFAE; opacity: 0"
+                  gltf-model="assets/3dplant0.glb"
+                  position="10 10 10"
+                  animation__enterframe1="property: position; to: -4 -1.5 -6; from: -6 -1.5 -6 dur: 1; dur: 1; pauseEvents: pause; autoplay: false; startEvents: playanimation4; delay: 6000;"
+            
+                  ></a-entity>
+                  <a-entity id = "plant3"
+                  scale = "0.6 0.6 0.6"
+                  geometry="primitive: box"
+                  rotation="0 90 0"
+                  material="color: #ABFFAE; opacity: 0"
+                  gltf-model="assets/3dplant0.glb"
+                  position="10 10 10"
+                  animation__enterframe1="property: position; to: -2 -1.5 -6; from: -6 -1.5 -6; dur: 1; dur: 1; pauseEvents: pause; autoplay: false; startEvents: playanimation4; delay: 6000;"
+                  ></a-entity>
+                <!-- </a-entity> -->
+
+
+
+        <!-- text -->
+                  <!-- what are you doing -->
+
+                  <!-- <a-entity id="text1"
+                  scale="3 3 3"
+                  geometry="primitive: plane; width: 2; height: 1"
+                  material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+
+
+                  animation__appear="property: position; to: 0.8 3.5 -7; from: 0.8 3.5 -7; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 4000; delay: 7000;"
+                  animation__disappear="property: position; to: 100 100 100; from: 0.8 3.5 -7; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 1; delay: 12000;"
+
+                  ><a-entity
+                   
+                  text="value: jyeñthwas kheñh?; color: #000000; align: center; width: 5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+                  
+                  ></a-entity>
+
+                </a-entity> -->
+
+
+                <a-entity id="text1"
+                scale="2 2 2"
+                text="value: jyeñthwas kheñh?; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+    
+                animation__appear="property: position; to: 0.8 3.5 -7; from: 0.8 3.5 -7; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 4000; delay: 7000;"
+                animation__disappear="property: position; to: 100 100 100; from: 0.8 3.5 -7; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 1; delay: 11000;"
+      
+              ></a-entity>
+
+                
+        
+                <!-- i am planting -->
+                <a-entity id="speechbubble1"
+                  position="10 10 10" 
+                  opacity=".2"
+                
+                  geometry="primitive: plane; width: 2; height: 1"
+                  material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+                  
+                  animation__answer1="property: position; to: -2 1.5 -3 ; from: -2 1.5 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 1; delay: 0;"
+                  animation__leaveframe1="property: position; to: 10 10 10; from: -2 1.5 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 1; delay: 3000;"
+
+                  ><a-entity id="text2"
+                   
+                    text="value: heñheñh, gyeñthwas; width: 5; color: #000000; align: center; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+                    
+                    ></a-entity>
+      
+                </a-entity>
+
+
+
+              
+                <!-- you plant-->
+                <a-entity id="text3"
+                scale="2 2 2"
+                text="value: jyeñthwah!; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false;"
+
+                animation__appear="property: position; to: 3.5 3.5 -6; from: 3.5 3.5 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 4000; delay: 4000;"
+                animation__disappear="property: position; to: 100 100 100; from: 3.5 3.5 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 1; delay: 8000;"
+        
+                ></a-entity>
+
+
+
+                <!-- I'm planting-->
+                <a-entity id="text3.1"
+                  scale="2 2 2"
+                  text="value: gyeñthwas; color: #000000; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false;"
+      
+                  animation__appear="property: position; to: 0 1 -3; from: 0 1 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 4000; delay: 14000;"
+                  animation__disappear="property: position; to: 100 100 100; from: 0 1 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 1; delay: 18000;"
+        
+                ></a-entity>
+
+
+                <!-- speechbubble2 -->
+                 <!-- You're planting-->
+
+               <a-entity id="speechbubble2"
+               position="10 10 10" 
+               opacity=".2"
+
+               geometry="primitive: plane; width: 2; height: 1"
+               material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+               
+               animation__appear="property: position; to: 3 2 -3; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 4000; delay: 0;"
+               animation__disappear="property: position; to: 100 100 100; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 1; delay: 4000;"
+     
+           >
+               <a-entity id="text3.2"
+                   text="value: jyeñthwas; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false;"
+               ></a-entity>
+           </a-entity>
+
+
+
+
+
+
+                 <!-- is she planting-->
+                 <a-entity id="text4"
+                 scale="2 2 2"
+                 text="value: eyeñthwas kheñh?; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+       
+                 animation__appear="property: position; to: 7 3 -6; from: 7 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 4000; delay: 8000;"
+                 animation__disappear="property: position; to: 100 100 100; from: 7 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 1; delay: 12000;"
+               ></a-entity>
+
+               <!-- she is planting -->
+               <a-entity id="text5"
+               scale="2 2 2"
+               text="value: heñheñ, eyeñthwas; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+     
+               animation__appear="property: position; to: 4 3.5 -6; from: 4 3.5 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 4000; delay: 12000;"
+               animation__disappear="property: position; to: 100 100 100; from: 4 3.5 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 1; delay: 16000;"
+               ></a-entity>
+
+               <!-- is he planting-->
+               <a-entity id="text6"
+                 scale="2 2 2"
+                 text="value: hayeñthwas kheñh?; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+       
+                 animation__appear="property: position; to: 7 3 -6; from: 7 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 4000; delay: 16000;"
+                 animation__disappear="property: position; to: 100 100 100; from: 7 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 1; delay: 20000;"
+               ></a-entity>
+
+    
+                <!-- speechbubble3 -->
+                <!-- he is planting -->
+                <a-entity id="speechbubble3"
+                  position="10 10 10" 
+                  opacity=".2"
+                
+                  geometry="primitive: plane; width: 2; height: 1"
+                  material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+                  
+                  animation__answer2="property: position; to: 3 2 -3 ; from: 3 2 -3 ; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 0;"
+                  animation__leaveframe2="property: position; to: 10 10 10; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 4000;"
+
+                  ><a-entity id="text7"
+ 
+                  text="value: heñheñ, hayeñthwas; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+      
+                ></a-entity>
+              
+                </a-entity>
+
+                
+                <!-- you have planted -->
+                <a-entity id="text8"
+                scale="2 2 2"
+                text="value: sayeñthwih kheñ; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+      
+                animation__appear="property: position; to: 6 3.5 -6; from: 6 3.5 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 4000; delay: 38000;"
+                animation__disappear="property: position; to: 100 100 100; from: 6 3.5 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 42000;"
+                ></a-entity>
+
+                <!-- speechbubble4 -->
+                <!-- i have planted -->
+                <a-entity id="speechbubble4"
+                position="10 10 10" 
+                opacity=".2"
+              
+                geometry="primitive: plane; width: 2; height: 1"
+                material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+
+                animation__appear="property: position; to: 1.5 2 -3; from: 1.5 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 4000; delay: 0;"
+                animation__disappear="property: position; to: 10 10 10; from: 1.5 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 1; delay: 4000;"
+  
+                ><a-entity id="text9"
+
+                text="value: heñheñ, agyeñthwih; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+                ></a-entity>
+              </a-entity>
+
+
+                <!-- He has planted?-->
+                <a-entity id="text10"
+                scale="2 2 2"
+                text="value: hoyénthwih kheñh?; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+      
+                animation__appear="property: position; to: 9 3 -6; from: 9 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 4000; delay: 12000;"
+                animation__disappear="property: position; to: 100 100 100; from: 9 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 1; delay: 16000;"
+                ></a-entity>
+
+                <!-- speechbubble5 -->
+                <!-- He has planted.-->
+                <a-entity id="speechbubble5"
+                position="10 10 10" 
+                opacity=".2"
+              
+                geometry="primitive: plane; width: 2; height: 1"
+                material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+
+                animation__appear="property: position; to: 3 2 -3; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 1; delay: 0;"
+                animation__disappear="property: position; to: 10 10 10; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 1; delay: 4000;"
+  
+                ><a-entity id="text11"
+
+                text="value: heñheñ, agyeñthwih; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+                ></a-entity>
+              </a-entity>
+
+
+                <!-- She has planted? -->
+                <a-entity id="text12"
+                scale="2 2 2"
+                text="value: goyénthwih kheñh?; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+      
+                animation__appear="property: position; to: 9 3 -6; from: 9 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 4000; delay: 8000;"
+                animation__disappear="property: position; to: 100 100 100; from: 9 3 -6; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 1; delay: 12000;"
+                ></a-entity>
+
+
+                <!-- speechbubble6 -->
+                <!-- She has planted.-->
+                <a-entity id="speechbubble6"
+                  position="10 10 10" 
+                  opacity=".2"
+                
+                  geometry="primitive: plane; width: 2; height: 1"
+                  material="src: assets/speechbubble.svg; transparent: true; shader: flat;"
+  
+                  animation__answer3="property: position; to: 3 2 -3; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation7; dur: 1; delay: 0;"
+                  animation__leaveframe3="property: position; to: 10 10 10; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation7; dur: 1; delay: 4000;"
+    
+                  ><a-entity id="text13"
+    
+                    text="value: heñheñ, goyénthwih; color: #000000; align: center; width: 6; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+                  ></a-entity>
+                </a-entity>
+
+                <!-- END -->
+
+
+
+
+                <a-entity id="empty-speechbubble"
+                position="10 10 10" 
+              
+                geometry="primitive: plane; width: 2; height: 1"
+                material="src: assets/speechbubble.svg; transparent: true;"
+  
+                animation__appear="property: position; to: -2 1.5 -3 ; from: -2 1.5 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation1; dur: 1; delay: 12000;"
+                animation__disappear="property: position; to: 10 10 10; from: -2 1.5 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 1; delay: 0;"
+  
+                animation__appear2="property: position; to: 3 2 -3 ; from: 3 2 -3 easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation2; dur: 1; delay: 18000;"
+                animation__disappear2="property: position; to: 10 10 10; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 1; delay: 0;"
+  
+                animation__appear3="property: position; to: 3 2 -3; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation3; dur: 1; delay: 20000;"
+                animation__disappear3="property: position; to: 10 10 10; from: 3 2.5 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 0;"
+
+                animation__appear4="property: position; to: 3 2 -3; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation4; dur: 1; delay: 42000;"
+                animation__disappear4="property: position; to: 10 10 10; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 1; delay: 0;"
+
+                animation__appear5="property: position; to: 1.5 2 -3; from: 1.5 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation5; dur: 1; delay: 16000;"
+                animation__disappear5="property: position; to: 10 10 10; from: 1.5 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 1; delay: 0;"
+
+                animation__appear6="property: position; to: 3 2 -3; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation6; dur: 1; delay: 12000;"
+                animation__disappear6="property: position; to: 10 10 10; from: 3 2 -3; easing: linear; loop: false; pauseEvents: pause; autoplay: false; startEvents: playanimation7; dur: 1; delay: 0;"
+
+
+  
+  
+  
+              ></a-entity>
+
+
+
+
+              
+              <!-- quiz stuff -->
+
+             
+     
+           <!-- Result text -->
+           <a-text id="result-text" value="" position="-2 1.5 -2" color="#FFFFFF" font="myfont-msdf.json" fontImage="myfont.png" negate="false"></a-text>
+
+           <a-text id="result-text2" value="" position="-2 1.5 -3" color="#FFFFFF" font="myfont-msdf.json" fontImage="myfont.png" negate="false"></a-text>
+
+           <a-text id="result-text3" value="" position="-2 1.5 -3" color="#FFFFFF" font="myfont-msdf.json" fontImage="myfont.png" negate="false"></a-text>
+
+           <a-text id="result-text4" value="" position="-2 1.5 -3" color="#FFFFFF" font="myfont-msdf.json" fontImage="myfont.png" negate="false"></a-text>
+
+           <a-text id="result-text5" value="" position="-2 1.5 -3" color="#FFFFFF" font="myfont-msdf.json" fontImage="myfont.png" negate="false"></a-text>
+
+           <a-text id="result-text6" value="" position="-2 1.5 -3" color="#FFFFFF" font="myfont-msdf.json" fontImage="myfont.png" negate="false"></a-text>
+
+
+             
+           <!-- submit button -->
+           <a-plane id="submit-button"
+           position="10 10 10"
+           rotation="0 0 0"
+           width="0.5"
+           height="0.2"
+           color="red"
+           text="value: submit answer; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+           class="clickable"
+         ></a-plane>
+
+         <a-plane id="submit-button2"
+           position="10 10 10"
+           rotation="0 0 0"
+           width="0.5"
+           height="0.2"
+           color="red"
+           text="value: submit answer; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+           class="clickable"
+         ></a-plane>
+
+         <a-plane id="submit-button3"
+           position="10 10 10"
+           rotation="0 0 0"
+           width="0.5"
+           height="0.2"
+           color="red"
+           text="value: submit answer; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+           class="clickable"
+         ></a-plane>
+
+         <a-plane id="submit-button4"
+           position="10 10 10"
+           rotation="0 0 0"
+           width="0.5"
+           height="0.2"
+           color="red"
+           text="value: submit answer; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+           class="clickable"
+         ></a-plane>
+
+         <a-plane id="submit-button5"
+           position="10 10 10"
+           rotation="0 0 0"
+           width="0.5"
+           height="0.2"
+           color="red"
+           text="value: submit answer; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+           class="clickable"
+         ></a-plane>
+
+         <a-plane id="submit-button6"
+           position="10 10 10"
+           rotation="0 0 0"
+           width="0.5"
+           height="0.2"
+           color="red"
+           text="value: submit answer; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+           class="clickable"
+         ></a-plane>
+
+         <!-- continue button -->
+         <a-plane id="continue-button"
+         position="10 10 10"
+         rotation="0 0 0"
+         width="0.5"
+         height="0.2"
+         color="#0089FF"
+         text="value: continue scene; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+         class="clickable"
+       ></a-plane>
+
+        <a-plane id="continue-button2"
+        position="10 10 10"
+        rotation="0 0 0"
+        width="0.5"
+        height="0.2"
+        color="#0089FF"
+        text="value: continue scene; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+        class="clickable"
+      ></a-plane>
+
+      <a-plane id="continue-button3"
+        position="10 10 10"
+        rotation="0 0 0"
+        width="0.5"
+        height="0.2"
+        color="#0089FF"
+        text="value: continue scene; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+        class="clickable"
+      ></a-plane>
+
+      <a-plane id="continue-button4"
+      position="10 10 10"
+      rotation="0 0 0"
+      width="0.5"
+      height="0.2"
+      color="#0089FF"
+      text="value: continue scene; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+      class="clickable"
+    ></a-plane>
+
+    <a-plane id="continue-button5"
+    position="10 10 10"
+    rotation="0 0 0"
+    width="0.5"
+    height="0.2"
+    color="#0089FF"
+    text="value: continue scene; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+    class="clickable"
+  ></a-plane>
+
+  <a-plane id="continue-button6"
+  position="10 10 10"
+  rotation="0 0 0"
+  width="0.5"
+  height="0.2"
+  color="#0089FF"
+  text="value: continue scene; color: black; align: center; width: 1.5; font: myfont-msdf.json; fontImage: myfont.png; negate: false"
+  class="clickable"
+></a-plane>
+   
+   
+      <a-entity id="mcq-container1" position="0 1 -3">
+        
+        <!-- Create 4 squares within the red rectangle -->
+        <a-plane id="mcq-1" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he planted; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false " rotation="0 0 0"></a-plane>
+        <a-plane id="mcq-2" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: i am planting; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false " rotation="0 0 0"></a-plane>
+        <a-plane id="mcq-3" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: i planted; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false " rotation="0 0 0"></a-plane>
+        <a-plane id="mcq-4" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he is planting; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false " rotation="0 0 0"></a-plane>
+      </a-entity>
+
+
+      <a-entity id="mcq-container2" position="0 1 -3" rotation="0 0 0">
+        <!-- Create 4 squares within the red rectangle -->
+        <a-plane id="mcq-1" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: hes planting; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-2" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: shes planting; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-3" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: i am planting; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-4" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: you are planting; color: white; align: center; width: 4; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+      </a-entity>
+
+      <a-entity id="mcq-container3" position="0 1 -3" rotation="0 0 0">
+        <!-- Create 4 squares within the red rectangle -->
+        <a-plane id="mcq-1" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-2" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: she has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-3" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he is planting; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-4" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: I have planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+      </a-entity>
+
+      <a-entity id="mcq-container4" position="0 1 -3" rotation="0 0 0">
+        <!-- Create 4 squares within the red rectangle -->
+        <a-plane id="mcq-1" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-2" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: she has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-3" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he is planting; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-4" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: I have planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+      </a-entity>
+
+      <a-entity id="mcq-container5" position="0 1 -3" rotation="0 0 0">
+        <!-- Create 4 squares within the red rectangle -->
+        <a-plane id="mcq-1" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-2" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: she has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-3" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he is planting; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-4" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: I have planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+      </a-entity>
+
+      <a-entity id="mcq-container6" position="0 1 -3" rotation="0 0 0">
+        <!-- Create 4 squares within the red rectangle -->
+        <a-plane id="mcq-1" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-2" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: she has planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-3" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: he is planting; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+        <a-plane id="mcq-4" position="10 10 10" width="1" height="1" color="#FF0000" class="mcq" text="value: I have planted; color: white; align: center; width: 3; font: myfont-msdf.json; fontImage: myfont.png; negate: false"></a-plane>
+      </a-entity>
+
+         
+        <a-plane id="play-button"
+          position="0 0.2 -1"
+          rotation="0 0 0"
+          width=".3"
+          height=".2"
+          color="#00FF00"
+          text="value: Play; color: black; align: center; width: 2;font: myfont-msdf.json; fontImage: myfont.png; negate: false "
+          class="clickable"
+          play-button
+        ></a-plane>
+
+        <!-- <a-entity  position="1 0.2 -1" text="font: mozillavr; value:waʔkatkę́haʔ"></a-entity>
+        <a-entity position="1 0.4 -1" text="font:	ipaBook.json; value:waʔkatkę́haʔ"></a-entity>
+        <a-entity text="text: Hello World; font: ../fonts/DejaVu-sdf.fnt; fontImage: ../fonts/DejaVu-sdf.png"></a-entity>
+         -->
+
+
+         <a-entity camera look-controls="pointerLockEnabled: true; touchEnabled: true;"
+         rotation="0 90 0"> <!-- Set initial rotation to face forward -->
+         <a-cursor></a-cursor>
+         
+       </a-entity>
+           </a-scene>
+         </div>
+       
+           <script>
+             window.onload = function() {
+
+               AFRAME.components["look-controls"].Component.prototype.onTouchMove = function (evt) {
+                 if (AFRAME.utils.device.isMobile()) {
+
+                   if (this.touchStarted && this.data.touchEnabled) {
+                     // Calculate pitch and yaw changes based on touch movements
+                     var deltaX = evt.touches[0].pageX - this.touchStart.x;
+                     var deltaY = evt.touches[0].pageY - this.touchStart.y;
+         
+                     // Adjust the pitch and yaw rotations
+                     this.pitchObject.rotation.x += 0.6 * Math.PI * (deltaY / this.el.sceneEl.canvas.clientHeight);
+                     this.yawObject.rotation.y += Math.PI * (deltaX / this.el.sceneEl.canvas.clientWidth);
+         
+                     // Store the new touch positions
+                     this.touchStart = {
+                       x: evt.touches[0].pageX,
+                       y: evt.touches[0].pageY
+                     };
+                   }
+
+                 }
+               };
+
+   
+            AFRAME.registerComponent('play-button', {
+              init: function () {
+
+              this.el.addEventListener('click', function () {
+                this.setAttribute('position', '10 10 10');
+
+                //after hitting click, wrap everything underneath in a delay with a setTimeout, for a pre-scene written description to show up onscreen
+                
+ 
+                  // make play button disappear
+                  
+
+                  
+                    const boy1 = document.getElementById('boy1');
+                    boy1.emit('playanimation1');
+                    const boy2 = document.getElementById('boy2');
+                    boy2.emit('playanimation1');
+                    const girl = document.getElementById('girl');
+                    girl.emit('playanimation1');
+                    const empty_speechbubble = document.getElementById('empty-speechbubble');
+                    empty_speechbubble.emit('playanimation1');
+                    const text1 = document.getElementById('text1');
+                    text1.emit('playanimation1');
+
+                    setTimeout(() => {
+                      boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                      boy1.setAttribute('scale', '-1 1 1');
+                      boy1.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                    }, 5000);
+
+                        setTimeout(() => {
+                      boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                      boy1.setAttribute('scale', '-1 1 1');
+                      boy1.setAttribute('material', 'src: assets/lookingRightAndTalking_boy1.svg;');
+                    }, 7000);
+
+
+                    setTimeout(() => {
+                      boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                      boy1.setAttribute('scale', '-1 1 1');
+                      boy1.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                    }, 12000);
+
+                    setTimeout(() => {
+                      girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                      girl.setAttribute('material', 'src: assets/plantingPoseLookingRightPointingToSelf_girl.svg;');
+                    }, 7000);
+
+                    setTimeout(() => {
+                      girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                      girl.setAttribute('material', 'src: assets/plantingPoseTalkingLookingRightPointingToSelf_girl.svg;');
+                    }, 12000);
+
+                
+
+              // Register mcq-interaction component
+
+                AFRAME.registerComponent('mcq-interaction', {
+                init: function () {
+                  let mcqs = document.querySelectorAll('.mcq');
+                  let selectedAnswer = null;
+                  let correctAnswer = 'mcq-2'; // Assume mcq-2 is the correct answer
+
+                    let resultText = document.getElementById('result-text');
+                    let submitButton = document.getElementById('submit-button');
+                    let continueButton = document.getElementById('continue-button');
+
+                    let resultText2 = document.getElementById('result-text2');
+                    let submitButton2 = document.getElementById('submit-button2');
+                    let continueButton2 = document.getElementById('continue-button2');
+
+                    let resultText3 = document.getElementById('result-text3');
+                    let submitButton3 = document.getElementById('submit-button3');
+                    let continueButton3 = document.getElementById('continue-button3');
+
+                    let resultText4 = document.getElementById('result-text4');
+                    let submitButton4 = document.getElementById('submit-button4');
+                    let continueButton4 = document.getElementById('continue-button4');
+
+                    let resultText5 = document.getElementById('result-text4');
+                    let submitButton5 = document.getElementById('submit-button4');
+                    let continueButton5 = document.getElementById('continue-button5');
+
+                    let resultText6 = document.getElementById('result-text4');
+                    let submitButton6 = document.getElementById('submit-button4');
+                    let continueButton6 = document.getElementById('continue-button6');
+
+                    // Change position coords of all MCQ elements
+                    mcqs.forEach(mcq => {
+                    mcq.setAttribute('position', '10 10 10');
+                    });
+
+                    resultText.setAttribute('position', '10 10 10');
+                    submitButton.setAttribute('position', '10 10 10');
+                    continueButton.setAttribute('position', '10 10 10');
+
+                    resultText2.setAttribute('position', '10 10 10');
+                    submitButton2.setAttribute('position', '10 10 10');
+                    continueButton2.setAttribute('position', '10 10 10');
+
+                    resultText3.setAttribute('position', '10 10 10');
+                    submitButton3.setAttribute('position', '10 10 10');
+                    continueButton3.setAttribute('position', '10 10 10');
+
+                    resultText4.setAttribute('position', '10 10 10');
+                    submitButton4.setAttribute('position', '10 10 10');
+                    continueButton4.setAttribute('position', '10 10 10');
+
+                    resultText5.setAttribute('position', '10 10 10');
+                    submitButton5.setAttribute('position', '10 10 10');
+                    continueButton5.setAttribute('position', '10 10 10');
+
+                    resultText6.setAttribute('position', '10 10 10');
+                    submitButton6.setAttribute('position', '10 10 10');
+                    continueButton6.setAttribute('position', '10 10 10');
+
+
+
+
+
+                  setTimeout(() => {
+                    // Show  MCQ 1
+                    let mcqContainer1 = document.getElementById('mcq-container1');
+                    let mcqs1 = mcqContainer1.querySelectorAll('.mcq');
+                    mcqs1.forEach((mcq, index) => {
+                      mcq.setAttribute('position', `${-1.5 + index * 1} -1.5 0.3`);
+                    });
+
+                    resultText.setAttribute('position', '-1.8 0.3 -3');
+                    submitButton.setAttribute('position', '-.5 -.5 -1');
+                    continueButton.setAttribute('position', '.5 -.5 -1');
+
+                    mcqs.forEach(mcq => {
+                      mcq.addEventListener('mouseenter', function () {
+                        mcq.setAttribute('scale', '1.1 1.1 1.1');
+                        mcq.setAttribute('color', '#FF6666');
+                      });
+
+                      mcq.addEventListener('mouseleave', function () {
+                        mcq.setAttribute('scale', '1 1 1');
+                        if (mcq.getAttribute('data-selected') !== 'true') {
+                          mcq.setAttribute('color', '#FF0000');
+                        }
+                      });
+
+                      mcq.addEventListener('click', function () {
+                        // Reset color of all mcqs
+                        mcqs.forEach(item => {
+                          item.setAttribute('color', '#FF0000');
+                          item.setAttribute('data-selected', 'false');
+                        });
+                        // Set clicked mcq to yellow
+                        mcq.setAttribute('color', '#FFFF00');
+                        mcq.setAttribute('data-selected', 'true');
+                        selectedAnswer = mcq.getAttribute('id');
+                      });
+                    });
+
+                    submitButton.addEventListener('mouseenter', function () {
+                      submitButton.setAttribute('scale', '1.1 1.1 1.1');
+                      submitButton.setAttribute('color', '#FF6666');
+                    });
+
+                    submitButton.addEventListener('mouseleave', function () {
+                      submitButton.setAttribute('scale', '1 1 1');
+                      submitButton.setAttribute('color', '#FF0000');
+                    });
+
+
+                    submitButton.addEventListener('click', function () {
+                      // Check if selected answer is correct
+                      if (selectedAnswer === correctAnswer) {
+                        resultText.setAttribute('value', 'Correct!');
+                        resultText.setAttribute('color', '#00FF00');
+                      } else {
+                        resultText.setAttribute('value', 'Wrong!');
+                        resultText.setAttribute('color', '#FF0000');
+                      }
+                      continueButton.setAttribute('visible', 'true');
+                    });
+
+
+                    continueButton.addEventListener('mouseenter', function () {
+                      continueButton.setAttribute('scale', '1.1 1.1 1.1');
+                      continueButton.setAttribute('color', '#66B3FF');
+                    });
+
+                    continueButton.addEventListener('mouseleave', function () {
+                      continueButton.setAttribute('scale', '1 1 1');
+                      continueButton.setAttribute('color', '#66B3FF');
+                    });
+
+                    continueButton.addEventListener('click', function () {
+
+                // Hide the MCQ elements and other UI elements
+                mcqs1.forEach((mcq, index) => {
+                      mcq.setAttribute('position', '10 10 10');
+                    });
+                resultText.setAttribute('position', '10 10 10');
+                submitButton.setAttribute('position', '10 10 10');
+                continueButton.setAttribute('position', '10 10 10');
+
+
+                const boy1 = document.getElementById('boy1');
+                boy1.emit('playanimation2');
+                const boy2 = document.getElementById('boy2');
+                boy2.emit('playanimation2');
+                const girl = document.getElementById('girl');
+                girl.emit('playanimation2');
+                const girl2 = document.getElementById('girl2');
+                girl2.emit('playanimation2');
+                const text2 = document.getElementById('text2');
+                text2.emit('playanimation2');
+                const text3 = document.getElementById('text3');
+                text3.emit('playanimation2');
+                const text31 = document.getElementById('text3.1');
+                text31.emit('playanimation2');
+                const text32 = document.getElementById('text3.2');
+                text32.emit('playanimation2');
+                const empty_speechbubble = document.getElementById('empty-speechbubble');
+                empty_speechbubble.emit('playanimation2');
+                const speechbubble1 = document.getElementById('speechbubble1');
+                speechbubble1.emit('playanimation2');
+
+                
+
+
+
+
+              setTimeout(() => {
+                    girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                    girl.setAttribute('material', 'src: assets/plantingPose_girl.svg;');
+                  }, 4000);
+
+
+                // go plant
+
+              setTimeout(() => {
+                    boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4');
+                    boy2.setAttribute('scale', '2 1 1');
+                    boy2.setAttribute('material', 'src: assets/pointingToSomeonePose_boy2.svg; transparent: true;');
+                  }, 4000);
+
+              setTimeout(() => {
+                  boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                  boy1.setAttribute('scale', '1 1 1');
+                  boy1.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                }, 4000);
+
+
+                setTimeout(() => {
+                  boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                  boy2.setAttribute('scale', '-2 1 1');
+                  boy2.setAttribute('material', 'src: assets/defaultpose_boy2.svg; transparent: true;');
+                }, 8000);
+                
+
+              setTimeout(() => {
+                boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                boy1.setAttribute('scale', '-1 1 1');
+                boy1.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+              }, 8000);
+
+              
+
+            
+              setTimeout(() => {
+                boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                boy1.setAttribute('scale', '-1 1 1');
+                boy1.setAttribute('material', 'src: assets/plantingPose_boy1.svg;');
+              }, 11000);
+
+
+                // Im planting
+
+
+            setTimeout(() => {
+                boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                boy1.setAttribute('scale', '1 1 1');
+                boy1.setAttribute('material', 'src: assets/plantingPoseTalkingLookingRightPointingToSelf_boy1.svg;');
+              }, 14000);
+
+
+              setTimeout(() => {
+                boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                boy2.setAttribute('scale', '-2 1 1');
+                boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                }, 14000);
+              
+
+
+                // you're planting
+
+                setTimeout(() => {
+                  boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                  boy2.setAttribute('scale', '2 1 1');
+                  boy2.setAttribute('material', 'src: assets/pointingToSomeonePose_boy2.svg; transparent: true;');
+                }, 18000);
+
+
+                setTimeout(() => {
+                boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                boy1.setAttribute('scale', '1 1 1');
+                boy1.setAttribute('material', 'src: assets/plantingPoseLookingRightPointingToSelf_boy1.svg;');
+              }, 18000);
+
+
+
+              
+
+
+             
+
+
+            
+
+                            // Set timeout to trigger quiz 2 after 6 seconds
+                            setTimeout(() => {
+                            // Display quiz 2 elements and logic here
+                            let selectedAnswer2 = null;
+                            let correctAnswer2 = 'mcq-4'; // Example correct answer for quiz 2
+
+                            resultText2.setAttribute('position', '-1.8 0.3 -3');
+                            submitButton2.setAttribute('position', '-.5 -.5 -1');
+                            continueButton2.setAttribute('position', '.5 -.5 -1');
+
+                            // Show quiz 2 elements
+                            let mcqContainer2 = document.getElementById('mcq-container1');
+                                let mcqs2 = mcqContainer2.querySelectorAll('.mcq');
+                                mcqs2.forEach((mcq, index) => {
+                                mcq.setAttribute('position', `${-1.5 + index * 1} -1.5 0.3`);
+                                });
+
+
+                            // Add interaction for quiz 2 (similar to quiz 1)
+                            mcqs2.forEach(mcq => {
+                                mcq.addEventListener('mouseenter', function () {
+                                mcq.setAttribute('scale', '1.1 1.1 1.1');
+                                mcq.setAttribute('color', '#FF6666');
+                                });
+
+                                mcq.addEventListener('mouseleave', function () {
+                                mcq.setAttribute('scale', '1 1 1');
+                                if (mcq.getAttribute('data-selected') !== 'true') {
+                                    mcq.setAttribute('color', '#FF0000');
+                                }
+                                });
+
+                                mcq.addEventListener('click', function () {
+                                // Reset color of all mcqs
+                                mcqs2.forEach(item => {
+                                    item.setAttribute('color', '#FF0000');
+                                    item.setAttribute('data-selected', 'false');
+                                });
+                                // Set clicked mcq to yellow
+                                mcq.setAttribute('color', '#FFFF00');
+                                mcq.setAttribute('data-selected', 'true');
+                                selectedAnswer2 = mcq.getAttribute('id');
+                                });
+                            });
+
+                            submitButton2.addEventListener('mouseenter', function () {
+                                submitButton2.setAttribute('scale', '1.1 1.1 1.1');
+                                submitButton2.setAttribute('color', '#FF6666');
+                                });
+
+                                submitButton2.addEventListener('mouseleave', function () {
+                                submitButton2.setAttribute('scale', '1 1 1');
+                                submitButton2.setAttribute('color', '#FF0000');
+                                });
+
+
+                            // Add submit logic for quiz 2
+                            submitButton2.addEventListener('click', function () {
+                                // Check if selected answer is correct
+                                if (selectedAnswer2 === correctAnswer2) {
+                                resultText2.setAttribute('value', 'Correct!');
+                                resultText2.setAttribute('color', '#00FF00');
+                                } else {
+                                resultText2.setAttribute('value', 'Wrong!');
+                                resultText2.setAttribute('color', '#FF0000');
+                                }
+                                continueButton2.setAttribute('visible', 'true');
+                            });
+
+
+                            continueButton2.addEventListener('mouseenter', function () {
+                                continueButton2.setAttribute('scale', '1.1 1.1 1.1');
+                                continueButton2.setAttribute('color', '#66B3FF');
+                                });
+
+                                continueButton2.addEventListener('mouseleave', function () {
+                                continueButton2.setAttribute('scale', '1 1 1');
+                                continueButton2.setAttribute('color', '#66B3FF');
+                                });
+
+
+                            // Continue button for quiz 2
+                            continueButton2.addEventListener('click', function () {
+                                // Hide quiz 2 elements
+                                mcqs2.forEach((mcq, index) => {
+                                mcq.setAttribute('position', `10 10 10`);
+                                });
+
+                                resultText2.setAttribute('position', '10 10 10');
+                                submitButton2.setAttribute('position', '10 10 10');
+                                continueButton2.setAttribute('position', '10 10 10');
+
+
+
+                                const boy1 = document.getElementById('boy1');
+                                boy1.emit('playanimation3');
+                                const boy2 = document.getElementById('boy2');
+                                boy2.emit('playanimation3');
+                                const girl = document.getElementById('girl');
+                                girl.emit('playanimation3');
+                                const girl2 = document.getElementById('girl2');
+                                girl2.emit('playanimation3');
+                                const text4 = document.getElementById('text4');
+                                text4.emit('playanimation3');
+                                const text5 = document.getElementById('text5');
+                                text5.emit('playanimation3');
+                                const text6 = document.getElementById('text6');
+                                text6.emit('playanimation3');
+                                const empty_speechbubble = document.getElementById('empty-speechbubble');
+                                empty_speechbubble.emit('playanimation3');
+                                const speechbubble2 = document.getElementById('speechbubble2');
+                                speechbubble2.emit('playanimation3');
+
+
+
+
+                                setTimeout(() => {
+                                    boy1.setAttribute('geometry', 'primitive: plane; width: 3; height: 5');
+                                    boy1.setAttribute('scale', '-1 1 1');
+                                    boy1.setAttribute('material', 'src: assets/plantingPose_boy1.svg;');
+                                }, 4000);
+
+                                setTimeout(() => {
+                                    boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                    boy2.setAttribute('scale', '2 1 1');
+                                    boy2.setAttribute('material', 'src: assets/defaultpose_boy2.svg; transparent: true;');
+                                }, 4000);
+
+                            // talking to girl 2
+
+
+                            // is she planting
+
+                            setTimeout(() => {
+                                    boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                    boy2.setAttribute('scale', '2 1 1');
+                                    boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                                }, 8000);
+
+                            setTimeout(() => {
+                                    girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                    girl2.setAttribute('scale', '-2 1 1');
+                                    girl2.setAttribute('material', 'src: assets/lookingRightAndTalking_boy1.svg;');
+                                }, 8000);
+
+
+                                // she is planting
+
+                                setTimeout(() => {
+                                    girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                    girl2.setAttribute('scale', '-2 1 1');
+                                    girl2.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                                }, 12000);
+
+                                
+
+                                setTimeout(() => {
+                                boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                boy2.setAttribute('scale', '2 1 1');
+                                boy2.setAttribute('material', 'src: assets/behindPointingToSomeonePose_boy2.svg; transparent: true;');
+                                }, 12000);
+
+                            setTimeout(() => {
+                                    girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                    girl.setAttribute('material', 'src: assets/plantingPoseLookingRightPointingToSelf_girl.svg;');
+                                }, 12000);
+
+                                setTimeout(() => {
+                                    girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                    girl.setAttribute('material', 'src: assets/plantingPose_girl.svg;');
+                                }, 16000);
+
+                                // is he planting?
+
+                                setTimeout(() => {
+                                    girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                    girl2.setAttribute('scale', '-2 1 1');
+                                    girl2.setAttribute('material', 'src: assets/lookingRightAndTalking_boy1.svg;');
+                                }, 16000);
+
+
+                                setTimeout(() => {
+                                boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                boy2.setAttribute('scale', '2 1 1');
+                                boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                                }, 16000);
+
+                                // he is planting
+
+                                setTimeout(() => {
+                                    girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                    girl2.setAttribute('scale', '-2 1 1');
+                                    girl2.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                                }, 20000);
+
+                                // setTimeout(() => {
+                                // boy2.setAttribute('material', 'src: assets/behindSmallPointingToSomeonePose_boy2.svg;');
+                                // }, 20000);
+                                
+
+                                setTimeout(() => {
+                                boy2.setAttribute('material', 'src: assets/behindPointingToSomeonePose_boy2.svg;');
+                                }, 20000);
+
+                                setTimeout(() => {
+                                boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                boy1.setAttribute('scale', '2 1 1');
+                                boy1.setAttribute('material', 'src: assets/plantingPoseLookingRightPointingToSelf_boy1.svg;');
+                                }, 20000);
+
+
+
+
+
+                                            // Set timeout to trigger quiz 3 after 30 seconds
+                                            setTimeout(() => {
+                                            // Display quiz 3 elements and logic here
+                                            let selectedAnswer3 = null;
+                                            let correctAnswer3 = 'mcq-1'; // Example correct answer for quiz 3
+
+                                            resultText3.setAttribute('position', '-1.8 0.3 -3');
+                                            submitButton3.setAttribute('position', '-.5 -.5 -1');
+                                            continueButton3.setAttribute('position', '.5 -.5 -1');
+
+                                            // Show quiz 3 elements
+                                            let mcqContainer3 = document.getElementById('mcq-container3');
+                                            let mcqs3 = mcqContainer3.querySelectorAll('.mcq');
+                                            mcqs3.forEach((mcq, index) => {
+                                                mcq.setAttribute('position', `${-1.5 + index * 1} -1.5 0.3`);
+                                            });
+
+                                            // Add interaction for quiz 3 (similar to quiz 1 and 2)
+                                            mcqs3.forEach(mcq => {
+                                                mcq.addEventListener('mouseenter', function () {
+                                                mcq.setAttribute('scale', '1.1 1.1 1.1');
+                                                mcq.setAttribute('color', '#FF6666');
+                                                });
+
+                                                mcq.addEventListener('mouseleave', function () {
+                                                mcq.setAttribute('scale', '1 1 1');
+                                                if (mcq.getAttribute('data-selected') !== 'true') {
+                                                    mcq.setAttribute('color', '#FF0000');
+                                                }
+                                                });
+
+                                                mcq.addEventListener('click', function () {
+                                                // Reset color of all mcqs
+                                                mcqs3.forEach(item => {
+                                                    item.setAttribute('color', '#FF0000');
+                                                    item.setAttribute('data-selected', 'false');
+                                                });
+                                                // Set clicked mcq to yellow
+                                                mcq.setAttribute('color', '#FFFF00');
+                                                mcq.setAttribute('data-selected', 'true');
+                                                selectedAnswer3 = mcq.getAttribute('id');
+                                                });
+                                            });
+
+                                            submitButton3.addEventListener('mouseenter', function () {
+                                            submitButton3.setAttribute('scale', '1.1 1.1 1.1');
+                                            submitButton3.setAttribute('color', '#FF6666');
+                                            });
+
+                                            submitButton3.addEventListener('mouseleave', function () {
+                                            submitButton3.setAttribute('scale', '1 1 1');
+                                            submitButton3.setAttribute('color', '#FF0000');
+                                            });
+
+
+                                            // Add submit logic for quiz 3
+                                            submitButton3.addEventListener('click', function () {
+                                                // Check if selected answer is correct
+                                                if (selectedAnswer3 === correctAnswer3) {
+                                                resultText3.setAttribute('value', 'Correct!');
+                                                resultText3.setAttribute('color', '#00FF00');
+                                                } else {
+                                                resultText3.setAttribute('value', 'Wrong!');
+                                                resultText3.setAttribute('color', '#FF0000');
+                                                }
+                                                continueButton3.setAttribute('visible', 'true');
+                                            });
+
+
+
+                                            continueButton3.addEventListener('mouseenter', function () {
+                                            continueButton3.setAttribute('scale', '1.1 1.1 1.1');
+                                            continueButton3.setAttribute('color', '#66B3FF');
+                                            });
+
+                                            continueButton3.addEventListener('mouseleave', function () {
+                                            continueButton3.setAttribute('scale', '1 1 1');
+                                            continueButton3.setAttribute('color', '#66B3FF');
+                                            });
+
+                                            // Continue button for quiz 3
+                                            continueButton3.addEventListener('click', function () {
+                                                // Hide quiz 3 elements
+                                                mcqs3.forEach((mcq, index) => {
+                                                mcq.setAttribute('position', `10 10 10`);
+                                                });
+
+                                                resultText3.setAttribute('position', '10 10 10');
+                                                submitButton3.setAttribute('position', '10 10 10');
+                                                continueButton3.setAttribute('position', '10 10 10');
+
+
+
+
+                                                // Emit animations to play for the rest of the scene up until the next quiz
+                                                const boy1 = document.getElementById('boy1');
+                                                boy1.emit('playanimation4');
+                                                const boy2 = document.getElementById('boy2');
+                                                boy2.emit('playanimation4');
+                                                const girl = document.getElementById('girl');
+                                                girl.emit('playanimation4');
+                                                const girl2 = document.getElementById('girl2');
+                                                girl2.emit('playanimation4');
+                                                const plant1 = document.getElementById('plant1');
+                                                plant1.emit('playanimation4');
+                                                const plant2 = document.getElementById('plant2');
+                                                plant2.emit('playanimation4');
+                                                const plant3 = document.getElementById('plant3');
+                                                plant3.emit('playanimation4');
+                                                const text8 = document.getElementById('text8');
+                                                text8.emit('playanimation4');
+                                                const text9 = document.getElementById('text9');
+                                                text9.emit('playanimation4');
+                                                const empty_speechbubble = document.getElementById('empty-speechbubble');
+                                                empty_speechbubble.emit('playanimation4');
+                                                const speechbubble = document.getElementById('speechbubble3');
+                                                 speechbubble.emit('playanimation4');
+
+
+
+                                            setTimeout(() => {
+                                                boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                boy2.setAttribute('scale', '2 1 1');
+                                                boy2.setAttribute('material', 'src: assets/defaultpose_boy2.svg; transparent: true;');
+                                            }, 4000);
+
+                                            setTimeout(() => {
+                                            girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 4.5');
+                                            girl2.setAttribute('scale', '2 1 1');
+                                            girl2.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                                        }, 4000);
+                                                                    
+
+
+                                                setTimeout(() => {
+                                            girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            girl.setAttribute('material', 'src: assets/rakingPose_girl.svg;');
+                                            }, 4000);
+
+                                            setTimeout(() => {
+                                            girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            girl.setAttribute('material', 'src: assets/donePlantingPose_girl.svg;');
+                                            }, 7000);
+
+                                            setTimeout(() => {
+                                            girl.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            girl.setAttribute('material', 'src: assets/defaultPose_girl.svg; transparent: true;');
+                                            }, 11000);
+
+                                            setTimeout(() => {
+                                            boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            boy1.setAttribute('material', 'src: assets/rakingPose_boy1.svg; width: 3; height: 5;');
+                                            }, 4000);
+
+                                            setTimeout(() => {
+                                            boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            boy1.setAttribute('material', 'src: assets/donePlantingPose_boy1.svg; ');
+                                            }, 7000);
+
+                                            setTimeout(() => {
+                                            boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            boy1.setAttribute('material', 'src: assets/defaultpose_boy1.svg; ');
+                                            }, 11000);
+
+
+
+                                                // plant changes
+
+                                                setTimeout(() => {
+                                                // Remove geometry attribute if present
+                                                plant1.setAttribute('gltf-model', 'url(assets/3dplant1.glb)');
+                                                }, 18000);
+                                        
+                                                setTimeout(() => {
+                                                plant1.setAttribute('gltf-model', 'url(assets/3dplant2.glb)');
+                                                }, 22000);
+
+                                                setTimeout(() => {
+                                                plant1.setAttribute('gltf-model', 'url(assets/3dplant3.glb)');
+                                                }, 26000);
+
+                                            
+                                        
+
+                                            setTimeout(() => {
+                                                // Remove geometry attribute if present
+                                                plant2.setAttribute('gltf-model', 'url(assets/3dplant1.glb)');
+                                            }, 18000);
+                                    
+                                            setTimeout(() => {
+                                                plant2.setAttribute('gltf-model', 'url(assets/3dplant2.glb)');
+                                            }, 22000);
+
+                                            setTimeout(() => {
+                                                plant2.setAttribute('gltf-model', 'url(assets/3dplant3.glb)');
+                                            }, 26000);
+
+
+
+                                            setTimeout(() => {
+                                                // Remove geometry attribute if present
+                                                plant3.setAttribute('gltf-model', 'url(assets/3dplant1.glb)');
+                                            }, 18000);
+
+                                            setTimeout(() => {
+                                                plant3.setAttribute('gltf-model', 'url(assets/3dplant2.glb)');
+                                            }, 22000);
+
+                                            setTimeout(() => {
+                                                plant3.setAttribute('gltf-model', 'url(assets/3dplant3.glb)');
+                                            }, 26000);
+
+
+
+
+                                            // boy1 and boy2 return, boy2 asks
+
+
+                                            setTimeout(() => {
+                                                boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                boy2.setAttribute('scale', '2 1 1');
+                                                boy2.setAttribute('material', 'src: assets/pointingToSomeonePose_boy2.svg; transparent: true;');
+                                            }, 38000);
+
+
+                                            setTimeout(() => {
+                                                boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                boy1.setAttribute('material', 'src: assets/lookingRight_boy1.svg;');
+                                            }, 38000);
+
+
+                                            setTimeout(() => {
+                                                boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                boy2.setAttribute('scale', '-2 1 1');
+                                                boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                                            }, 42000);
+
+
+                                            setTimeout(() => {
+                                            boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                            boy1.setAttribute('scale', '-2 1 1');
+                                            boy1.setAttribute('material', 'src: assets/IHavePlantedTalking_boy1.svg;');
+                                            }, 42000);
+
+
+
+
+
+                                                                    // Set timeout to trigger quiz 4 after 30 seconds
+                                                                    setTimeout(() => {
+                                                                    // Display quiz 4 elements and logic here
+                                                                    let selectedAnswer4 = null;
+                                                                    let correctAnswer4 = 'mcq-1'; // Example correct answer for quiz 4
+
+                                                                    resultText4.setAttribute('position', '-1.8 0.3 -3');
+                                                                    submitButton4.setAttribute('position', '-.5 -.5 -1');
+                                                                    continueButton4.setAttribute('position', '.5 -.5 -1');
+
+                                                                    // Show quiz 4 elements
+                                                                    let mcqContainer4 = document.getElementById('mcq-container4');
+                                                                    let mcqs4 = mcqContainer4.querySelectorAll('.mcq');
+                                                                    mcqs4.forEach((mcq, index) => {
+                                                                        mcq.setAttribute('position', `${-1.5 + index * 1} -1.5 0.3`);
+                                                                    });
+
+                                                                    // Add interaction for quiz 4 (similar to quiz 1, 2, and 3)
+                                                                    mcqs4.forEach(mcq => {
+                                                                        mcq.addEventListener('mouseenter', function () {
+                                                                        mcq.setAttribute('scale', '1.1 1.1 1.1');
+                                                                        mcq.setAttribute('color', '#FF6666');
+                                                                        });
+
+                                                                        mcq.addEventListener('mouseleave', function () {
+                                                                        mcq.setAttribute('scale', '1 1 1');
+                                                                        if (mcq.getAttribute('data-selected') !== 'true') {
+                                                                            mcq.setAttribute('color', '#FF0000');
+                                                                        }
+                                                                        });
+
+                                                                        mcq.addEventListener('click', function () {
+                                                                        // Reset color of all mcqs
+                                                                        mcqs4.forEach(item => {
+                                                                            item.setAttribute('color', '#FF0000');
+                                                                            item.setAttribute('data-selected', 'false');
+                                                                        });
+                                                                        // Set clicked mcq to yellow
+                                                                        mcq.setAttribute('color', '#FFFF00');
+                                                                        mcq.setAttribute('data-selected', 'true');
+                                                                        selectedAnswer4 = mcq.getAttribute('id');
+                                                                        });
+                                                                    });
+
+                                                                    submitButton4.addEventListener('mouseenter', function () {
+                                                                    submitButton4.setAttribute('scale', '1.1 1.1 1.1');
+                                                                    submitButton4.setAttribute('color', '#FF6666');
+                                                                    });
+
+                                                                    submitButton4.addEventListener('mouseleave', function () {
+                                                                    submitButton4.setAttribute('scale', '1 1 1');
+                                                                    submitButton4.setAttribute('color', '#FF0000');
+                                                                    });
+
+
+                                                                    // Add submit logic for quiz 4
+                                                                    submitButton4.addEventListener('click', function () {
+                                                                        // Check if selected answer is correct
+                                                                        if (selectedAnswer4 === correctAnswer4) {
+                                                                        resultText4.setAttribute('value', 'Correct!');
+                                                                        resultText4.setAttribute('color', '#00FF00');
+                                                                        } else {
+                                                                        resultText4.setAttribute('value', 'Wrong!');
+                                                                        resultText4.setAttribute('color', '#FF0000');
+                                                                        }
+                                                                        continueButton4.setAttribute('visible', 'true');
+                                                                    });
+
+
+
+                                                                    continueButton4.addEventListener('mouseenter', function () {
+                                                                    continueButton4.setAttribute('scale', '1.1 1.1 1.1');
+                                                                    continueButton4.setAttribute('color', '#66B3FF');
+                                                                    });
+
+                                                                    continueButton4.addEventListener('mouseleave', function () {
+                                                                    continueButton4.setAttribute('scale', '1 1 1');
+                                                                    continueButton4.setAttribute('color', '#66B3FF');
+                                                                    });
+
+                                                                    // Continue button for quiz 4
+                                                                    continueButton4.addEventListener('click', function () {
+                                                                        // Hide quiz 4 elements
+                                                                        mcqs4.forEach((mcq, index) => {
+                                                                        mcq.setAttribute('position', `10 10 10`);
+                                                                        });
+
+                                                                        resultText4.setAttribute('position', '10 10 10');
+                                                                        submitButton4.setAttribute('position', '10 10 10');
+                                                                        continueButton4.setAttribute('position', '10 10 10');
+
+
+                                                                        const boy1 = document.getElementById('boy1');
+                                                                        boy1.emit('playanimation5');
+                                                                        const boy2 = document.getElementById('boy2');
+                                                                        boy2.emit('playanimation5');
+                                                                        const girl = document.getElementById('girl');
+                                                                        girl.emit('playanimation5');
+                                                                        const girl2 = document.getElementById('girl2');
+                                                                        girl2.emit('playanimation5');
+                                                                        const text10 = document.getElementById('text10');
+                                                                        text10.emit('playanimation5');
+                                                                        const text11 = document.getElementById('text11');
+                                                                        text11.emit('playanimation5');
+                                                                        const empty_speechbubble = document.getElementById('empty-speechbubble');
+                                                                        empty_speechbubble.emit('playanimation5');
+                                                                        const speechbubble = document.getElementById('speechbubble4');
+                                                                        speechbubble.emit('playanimation5');
+                                                                        
+                                                                        
+                                                                        
+                                                                        setTimeout(() => {
+                                                                            boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                            boy1.setAttribute('scale', '-2 1 1');
+                                                                            boy1.setAttribute('material', 'src: assets/lookingRight_boy1.svg; width: 3; height: 5;');
+                                                                        }, 4000);
+
+                                                                        setTimeout(() => {
+                                                                            girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                            girl2.setAttribute('scale', '2 1 1');
+                                                                            girl2.setAttribute('material', 'src: assets/defaultPose_boy1.svg; transparent: true;');
+                                                                        }, 4000);
+                                                                        
+
+                                                                        // girl2 enters
+
+                                                                        //  he planted?
+
+                                                                        setTimeout(() => {
+                                                                            girl2.setAttribute('material', 'src: assets/pointingToSomeonePose2_boy2.svg; transparent: true;');
+                                                                        }, 12000);
+
+
+                                                                        setTimeout(() => {
+                                                                            boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                            boy2.setAttribute('scale', '2 1 1');
+                                                                            boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                                                                        }, 12000);
+                                                                                                    
+
+                                                                        setTimeout(() => {
+                                                                            girl2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                                                                            girl2.setAttribute('scale', '-2 1 1');
+                                                                        }, 12000);
+
+                                                                        // he planted
+
+                                                                        setTimeout(() => {
+                                                                            girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                            girl2.setAttribute('scale', '-2 1 1');
+                                                                            girl2.setAttribute('material', 'src: assets/lookingRight_boy1.svg; transparent: true;');
+                                                                        }, 16000);
+
+                                                                        
+
+                                                                        setTimeout(() => {
+                                                                            boy2.setAttribute('material', 'src: assets/behindPointingToSomeonePose_boy2.svg; transparent: true;');
+                                                                        }, 16000);
+
+                                                                        setTimeout(() => {
+                                                                        boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                        boy1.setAttribute('scale', '-2 1 1');
+                                                                        boy1.setAttribute('material', 'src: assets/IHavePlanted_boy1.svg;');
+                                                                        }, 16000);
+
+
+
+
+
+                                                                        
+                                                                                // Set timeout to trigger quiz 5 
+                                                                                setTimeout(() => {
+                                                                                    // Display quiz 5 elements and logic here
+                                                                                    let selectedAnswer5 = null;
+                                                                                    let correctAnswer5 = 'mcq-1'; // Example correct answer for quiz 5
+
+                                                                                    resultText5.setAttribute('position', '-1.8 0.3 -3');
+                                                                                    submitButton5.setAttribute('position', '-.5 -.5 -1');
+                                                                                    continueButton5.setAttribute('position', '.5 -.5 -1');
+
+                                                                                    // Show quiz 5 elements
+                                                                                    let mcqContainer5 = document.getElementById('mcq-container5');
+                                                                                    let mcqs5 = mcqContainer5.querySelectorAll('.mcq');
+                                                                                    mcqs5.forEach((mcq, index) => {
+                                                                                        mcq.setAttribute('position', `${-1.5 + index * 1} -1.5 0.3`);
+                                                                                    });
+
+                                                                                    // Add interaction for quiz 5 (similar to quiz 1, 2, 3, and 4)
+                                                                                    mcqs5.forEach(mcq => {
+                                                                                        mcq.addEventListener('mouseenter', function () {
+                                                                                            mcq.setAttribute('scale', '1.1 1.1 1.1');
+                                                                                            mcq.setAttribute('color', '#FF6666');
+                                                                                        });
+
+                                                                                        mcq.addEventListener('mouseleave', function () {
+                                                                                            mcq.setAttribute('scale', '1 1 1');
+                                                                                            if (mcq.getAttribute('data-selected') !== 'true') {
+                                                                                                mcq.setAttribute('color', '#FF0000');
+                                                                                            }
+                                                                                        });
+
+                                                                                        mcq.addEventListener('click', function () {
+                                                                                            // Reset color of all mcqs
+                                                                                            mcqs5.forEach(item => {
+                                                                                                item.setAttribute('color', '#FF0000');
+                                                                                                item.setAttribute('data-selected', 'false');
+                                                                                            });
+                                                                                            // Set clicked mcq to yellow
+                                                                                            mcq.setAttribute('color', '#FFFF00');
+                                                                                            mcq.setAttribute('data-selected', 'true');
+                                                                                            selectedAnswer5 = mcq.getAttribute('id');
+                                                                                        });
+                                                                                    });
+
+                                                                                    submitButton5.addEventListener('mouseenter', function () {
+                                                                                        submitButton5.setAttribute('scale', '1.1 1.1 1.1');
+                                                                                        submitButton5.setAttribute('color', '#FF6666');
+                                                                                    });
+
+                                                                                    submitButton5.addEventListener('mouseleave', function () {
+                                                                                        submitButton5.setAttribute('scale', '1 1 1');
+                                                                                        submitButton5.setAttribute('color', '#FF0000');
+                                                                                    });
+
+                                                                                    // Add submit logic for quiz 5
+                                                                                    submitButton5.addEventListener('click', function () {
+                                                                                        // Check if selected answer is correct
+                                                                                        if (selectedAnswer5 === correctAnswer5) {
+                                                                                            resultText5.setAttribute('value', 'Correct!');
+                                                                                            resultText5.setAttribute('color', '#00FF00');
+                                                                                        } else {
+                                                                                            resultText5.setAttribute('value', 'Wrong!');
+                                                                                            resultText5.setAttribute('color', '#FF0000');
+                                                                                        }
+                                                                                        continueButton5.setAttribute('visible', 'true');
+                                                                                    });
+
+                                                                                    continueButton5.addEventListener('mouseenter', function () {
+                                                                                        continueButton5.setAttribute('scale', '1.1 1.1 1.1');
+                                                                                        continueButton5.setAttribute('color', '#66B3FF');
+                                                                                    });
+
+                                                                                    continueButton5.addEventListener('mouseleave', function () {
+                                                                                        continueButton5.setAttribute('scale', '1 1 1');
+                                                                                        continueButton5.setAttribute('color', '#66B3FF');
+                                                                                    });
+
+                                                                                    // Continue button for quiz 5
+                                                                                    continueButton5.addEventListener('click', function () {
+                                                                                        // Hide quiz 5 elements
+                                                                                        mcqs5.forEach((mcq, index) => {
+                                                                                            mcq.setAttribute('position', `10 10 10`);
+                                                                                        });
+
+                                                                                        resultText5.setAttribute('position', '10 10 10');
+                                                                                        submitButton5.setAttribute('position', '10 10 10');
+                                                                                        continueButton5.setAttribute('position', '10 10 10');
+
+                       
+
+                                                                                        const boy1 = document.getElementById('boy1');
+                                                                                        boy1.emit('playanimation6');
+                                                                                        const boy2 = document.getElementById('boy2');
+                                                                                        boy2.emit('playanimation6');
+                                                                                        const girl = document.getElementById('girl');
+                                                                                        girl.emit('playanimation6');
+                                                                                        const girl2 = document.getElementById('girl2');
+                                                                                        girl2.emit('playanimation6');
+                                                                                        const text12 = document.getElementById('text12');
+                                                                                        text12.emit('playanimation6');
+                                                                                        const empty_speechbubble = document.getElementById('empty-speechbubble');
+                                                                                        empty_speechbubble.emit('playanimation6');
+                                                                                        const speechbubble = document.getElementById('speechbubble5');
+                                                                                        speechbubble.emit('playanimation6');
+
+                                                                                        
+                                                                                        setTimeout(() => {
+                                                                                            boy1.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                                            boy1.setAttribute('scale', '-2 1 1');
+                                                                                            boy1.setAttribute('material', 'src: assets/defaultPose_boy1.svg; transparent: true;');
+                                                                                        }, 4000);
+                                                                                        
+
+                                                                                        // boy leaves and girl enters
+
+                                                                                        setTimeout(() => {
+                                                                                            girl.setAttribute('scale', '2 1 1');
+                                                                                            girl.setAttribute('material', 'src: assets/defaultPose_girl.svg; width: 3; height: 5;');
+                                                                                        }, 4000);
+
+
+                                                                                        //  she planted?
+
+                                                                                        // setTimeout(() => {
+                                                                                        //     girl.setAttribute('scale', '2 1 1');
+                                                                                        //     girl.setAttribute('material', 'src: assets/lookingRight_girl.svg; width: 3; height: 5;');
+                                                                                        // }, 8000);
+                                                                                        
+
+                                                                                        setTimeout(() => {
+                                                                                            girl2.setAttribute('material', 'src: assets/pointingToSomeonePose2_boy2.svg; transparent: true;');
+                                                                                        }, 8000);
+
+                                                                                        setTimeout(() => {
+                                                                                            boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                                            boy2.setAttribute('scale', '2 1 1');
+                                                                                            boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; transparent: true;');
+                                                                                        }, 8000);
+
+                                                                                        // she planted
+
+                                                                                        setTimeout(() => {
+                                                                                            boy2.setAttribute('material', 'src: assets/behindPointingToSomeonePose_boy2.svg; transparent: true;');
+                                                                                        }, 12000);
+
+                                                                                        setTimeout(() => {
+                                                                                            girl2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                                            girl2.setAttribute('scale', '-2 1 1');
+                                                                                            girl2.setAttribute('material', 'src: assets/lookingRight_boy1.svg; transparent: true;');
+                                                                                        }, 12000);
+                                                                                        
+                                                                                    
+                                                                                        setTimeout(() => {
+                                                                                            girl.setAttribute('scale', '-2 1 1');
+                                                                                            girl.setAttribute('material', 'src: assets/IHavePlanted_girl.svg; width: 3; height: 5;');
+                                                                                        }, 12000);
+
+              
+                               
+
+
+                                                                                        
+                                                                
+
+                                                                                    // Set timeout to trigger quiz 6 
+                                                                                    setTimeout(() => {
+                                                                                        // Display quiz 6 elements and logic here
+                                                                                        let selectedAnswer6 = null;
+                                                                                        let correctAnswer6 = 'mcq-1'; // Example correct answer for quiz 6
+
+                                                                                        resultText6.setAttribute('position', '-1.8 0.3 -3');
+                                                                                        submitButton6.setAttribute('position', '-.5 -.5 -1');
+                                                                                        continueButton6.setAttribute('position', '.5 -.5 -1');
+
+                                                                                        // Show quiz 6 elements
+                                                                                        let mcqContainer6 = document.getElementById('mcq-container6');
+                                                                                        let mcqs6 = mcqContainer6.querySelectorAll('.mcq');
+                                                                                        mcqs6.forEach((mcq, index) => {
+                                                                                            mcq.setAttribute('position', `${-1.5 + index * 1} -1.5 0.3`);
+                                                                                        });
+
+                                                                                        // Add interaction for quiz 6 (similar to quiz 1, 2, 3, 4, and 5)
+                                                                                        mcqs6.forEach(mcq => {
+                                                                                            mcq.addEventListener('mouseenter', function () {
+                                                                                                mcq.setAttribute('scale', '1.1 1.1 1.1');
+                                                                                                mcq.setAttribute('color', '#FF6666');
+                                                                                            });
+
+                                                                                            mcq.addEventListener('mouseleave', function () {
+                                                                                                mcq.setAttribute('scale', '1 1 1');
+                                                                                                if (mcq.getAttribute('data-selected') !== 'true') {
+                                                                                                    mcq.setAttribute('color', '#FF0000');
+                                                                                                }
+                                                                                            });
+
+                                                                                            mcq.addEventListener('click', function () {
+                                                                                                // Reset color of all mcqs
+                                                                                                mcqs6.forEach(item => {
+                                                                                                    item.setAttribute('color', '#FF0000');
+                                                                                                    item.setAttribute('data-selected', 'false');
+                                                                                                });
+                                                                                                // Set clicked mcq to yellow
+                                                                                                mcq.setAttribute('color', '#FFFF00');
+                                                                                                mcq.setAttribute('data-selected', 'true');
+                                                                                                selectedAnswer6 = mcq.getAttribute('id');
+                                                                                            });
+                                                                                        });
+
+                                                                                        submitButton6.addEventListener('mouseenter', function () {
+                                                                                            submitButton6.setAttribute('scale', '1.1 1.1 1.1');
+                                                                                            submitButton6.setAttribute('color', '#FF6666');
+                                                                                        });
+
+                                                                                        submitButton6.addEventListener('mouseleave', function () {
+                                                                                            submitButton6.setAttribute('scale', '1 1 1');
+                                                                                            submitButton6.setAttribute('color', '#FF0000');
+                                                                                        });
+
+                                                                                        // Add submit logic for quiz 6
+                                                                                        submitButton6.addEventListener('click', function () {
+                                                                                            // Check if selected answer is correct
+                                                                                            if (selectedAnswer6 === correctAnswer6) {
+                                                                                                resultText6.setAttribute('value', 'Correct!');
+                                                                                                resultText6.setAttribute('color', '#00FF00');
+                                                                                            } else {
+                                                                                                resultText6.setAttribute('value', 'Wrong!');
+                                                                                                resultText6.setAttribute('color', '#FF0000');
+                                                                                            }
+                                                                                            continueButton6.setAttribute('visible', 'true');
+                                                                                        });
+
+                                                                                        continueButton6.addEventListener('mouseenter', function () {
+                                                                                            continueButton6.setAttribute('scale', '1.1 1.1 1.1');
+                                                                                            continueButton6.setAttribute('color', '#66B3FF');
+                                                                                        });
+
+                                                                                        continueButton6.addEventListener('mouseleave', function () {
+                                                                                            continueButton6.setAttribute('scale', '1 1 1');
+                                                                                            continueButton6.setAttribute('color', '#66B3FF');
+                                                                                        });
+
+                                                                                        // Continue button for quiz 6
+                                                                                        continueButton6.addEventListener('click', function () {
+                                                                                            // Hide quiz 6 elements
+                                                                                            mcqs6.forEach((mcq, index) => {
+                                                                                                mcq.setAttribute('position', `10 10 10`);
+                                                                                            });
+
+                                                                                            resultText6.setAttribute('position', '10 10 10');
+                                                                                            submitButton6.setAttribute('position', '10 10 10');
+                                                                                            continueButton6.setAttribute('position', '10 10 10');
+
+
+                                                                                            const speechbubble = document.getElementById('speechbubble6');
+                                                                                            speechbubble.emit('playanimation7');
+                                                                                            const empty_speechbubble = document.getElementById('empty-speechbubble');
+                                                                                            empty_speechbubble.emit('playanimation7');
+                                                                                            const text13 = document.getElementById('text13');
+                                                                                            text13.emit('playanimation7');
+
+                                                                                            // she planted
+
+                                                                                            setTimeout(() => {
+                                                                                                girl.setAttribute('material', 'src: assets/defaultPose_girl.svg; width: 3; height: 5;');
+                                                                                            }, 4000);
+
+                                                                                            setTimeout(() => {
+                                                                                            boy2.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 5');
+                                                                                            boy2.setAttribute('scale', '2 1 1');
+                                                                                            boy2.setAttribute('material', 'src: assets/lookingRight_boy2.svg; width: 3; height: 5;');
+                                                                                        }, 4000);
+
+
+                
+                                                                                        });
+
+                
+                                                                                        }, 16000); // delay for quiz 6 after continue button for quiz 5 is clicked
+
+
+                                                                                });
+
+
+                                                                                }, 20000); // delay for quiz 5 after continue button for quiz 4 is clicked
+
+
+
+                                                                    });
+
+                                                                    }, 46000); // delay for quiz 4 after continue button for quiz 3 is clicked
+
+
+                                            });
+
+                                            }, 24000); // delay for quiz 3 after continue button for quiz 2 is clicked
+
+
+                            });
+
+                            }, 22000); // delay for quiz 2 after continue button for quiz 1 is clicked
+
+                });
+                   
+                }, 16000); // delay for quiz 1
+
+                }
+              });
+
+              // Attach mcq-interaction component to mcq-container
+              document.querySelector('#mcq-container1').setAttribute('mcq-interaction', '');
+
+            });
+                }
+              });
+          }
+
+            </script>
+        
+  </body>
+</html>
+
+
+  
